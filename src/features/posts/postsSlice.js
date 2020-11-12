@@ -1,8 +1,13 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit'
+import { subMinutes } from 'date-fns'
+
+const actualDate = new Date()
+const actualDateString = actualDate.toISOString()
+const fiveMinAgo = subMinutes(actualDate, 5).toISOString()
 
 const initialState = [
-    { id: '1', title: 'First Post!', content: 'Hello!', user: 0 },
-    { id: '2', title: 'Second Post', content: 'More text'}
+    { id: '1', title: 'First Post!', content: 'Hello!', user: 0, date: actualDateString },
+    { id: '2', title: 'Second Post', content: 'More text', user: 1, date: fiveMinAgo }
 ]
 
 const postSlice = createSlice({
@@ -17,6 +22,7 @@ const postSlice = createSlice({
                 return {
                     payload: {
                         id: nanoid(),
+                        date: new Date().toISOString(),
                         title,
                         content,
                         user: userId
