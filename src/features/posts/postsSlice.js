@@ -6,8 +6,8 @@ const actualDateString = actualDate.toISOString()
 const fiveMinAgo = subMinutes(actualDate, 5).toISOString()
 
 const initialState = [
-    { id: '1', title: 'First Post!', content: 'Hello!', user: 0, date: actualDateString },
-    { id: '2', title: 'Second Post', content: 'More text', user: 1, date: fiveMinAgo }
+    { id: '1', title: 'First Post!', content: 'Hello!', user: 0, date: fiveMinAgo },
+    { id: '2', title: 'Second Post', content: 'More text', user: 1, date: actualDateString }
 ]
 
 const postSlice = createSlice({

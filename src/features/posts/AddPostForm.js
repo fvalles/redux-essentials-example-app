@@ -14,7 +14,7 @@ export const AddPostForm = () => {
 
     const onTitleChanged = ({ target }) => setTitle(target.value)
     const onContentChanged = ({ target }) => setContent(target.value)
-    const onAuthorChanged = ({ target }) => setUserId(target.value)
+    const onAuthorChanged = ({ target }) => setUserId(parseInt(target.value))
 
     const onSavePostClicked = () => {
         if (title && content) {
